@@ -1,3 +1,3 @@
-FROM vllm/vllm-openai-cpu:latest-x86_64
+FROM ghcr.io/ggml-org/llama.cpp:server
 
-CMD ["sh", "-c", "vllm serve occ-ai/OCC-RAG-0.6B --host 0.0.0.0 --port ${PORT:-8000} --max-model-len 4096"]
+CMD ["-hf", "occ-ai/OCC-RAG-0.6B-GGUF:Q4_K_M", "--host", "0.0.0.0", "--port", "8000", "-c", "4096"]
